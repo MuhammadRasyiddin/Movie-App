@@ -1,0 +1,7 @@
+<resources>
+    <string name="app_name">MovieApp</string>
+    <string name="content_description">Content Description</string>
+    <string name="trending">Trending</string>
+    <string name="category">Category</string>
+    <string name="recent">Recent</string>
+</resources>
