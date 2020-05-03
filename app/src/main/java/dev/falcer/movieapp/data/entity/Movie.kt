@@ -1,37 +1,38 @@
 package dev.falcer.movieapp.data.entity
 
 
+import com.google.gson.annotations.SerializedName
 import com.squareup.moshi.Json
 import com.squareup.moshi.JsonClass
 
 @JsonClass(generateAdapter = true)
 data class Movie(
-    @Json(name = "adult")
+    @SerializedName("adult")
     var adult: Boolean = false,
-    @Json(name = "backdrop_path")
+    @SerializedName("backdrop_path")
     var backdropPath: String = "",
-    @Json(name = "genre_ids")
+    @SerializedName("genre_ids")
     var genreIds: List<Int> = listOf(),
-    @Json(name = "id")
+    @SerializedName("id")
     var id: Int = 0,
-    @Json(name = "original_language")
+    @SerializedName("original_language")
     var originalLanguage: String = "",
-    @Json(name = "original_title")
+    @SerializedName("original_title")
     var originalTitle: String = "",
-    @Json(name = "overview")
+    @SerializedName("overview")
     var overview: String = "",
-    @Json(name = "popularity")
+    @SerializedName("popularity")
     var popularity: Double = 0.0,
-    @Json(name = "poster_path")
+    @SerializedName("poster_path")
     var posterPath: String = "",
-    @Json(name = "release_date")
+    @SerializedName("release_date")
     var releaseDate: String = "",
-    @Json(name = "title")
+    @SerializedName("title")
     var title: String = "",
-    @Json(name = "video")
+    @SerializedName("video")
     var video: Boolean = false,
-    @Json(name = "vote_average")
+    @SerializedName("vote_average")
     var voteAverage: Double = 0.0,
-    @Json(name = "vote_count")
+    @SerializedName("vote_count")
     var voteCount: Int = 0
 )

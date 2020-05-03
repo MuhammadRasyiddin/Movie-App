@@ -50,6 +50,10 @@ dependencies {
     implementation "com.squareup.moshi:moshi-kotlin:$moshi_version"
     kapt "com.squareup.moshi:moshi-kotlin-codegen:$moshi_version"
 
+    def gson_version = "2.8.6"
+    implementation "com.google.code.gson:gson:$gson_version"
+    implementation 'com.squareup.retrofit2:converter-gson:2.5.0'
+
     def shape_of_view_version = "1.4.7"
     implementation "com.github.florent37:shapeofview:$shape_of_view_version"
 

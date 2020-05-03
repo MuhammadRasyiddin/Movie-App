@@ -1,13 +1,13 @@
 package dev.falcer.movieapp.data.entity
 
 
+import com.google.gson.annotations.SerializedName
 import com.squareup.moshi.Json
 import com.squareup.moshi.JsonClass
 
-@JsonClass(generateAdapter = true)
 data class Genre(
-    @Json(name = "id")
+    @SerializedName("id")
     var id: Int = 0,
-    @Json(name = "name")
+    @SerializedName("name")
     var name: String = ""
 )

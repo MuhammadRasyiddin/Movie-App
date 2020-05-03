@@ -3,17 +3,25 @@ package dev.falcer.movieapp.ui.main
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import androidx.recyclerview.widget.GridLayoutManager
+import androidx.recyclerview.widget.LinearLayoutManager
+import androidx.recyclerview.widget.RecyclerView
 import androidx.viewpager2.widget.CompositePageTransformer
 import androidx.viewpager2.widget.MarginPageTransformer
+import com.google.android.material.appbar.AppBarLayout
 import dev.falcer.movieapp.R
 import dev.falcer.movieapp.utils.FakeDataConverter
 import kotlinx.android.synthetic.main.activity_main.*
+import kotlinx.android.synthetic.main.activity_main.rv_category
+import kotlinx.android.synthetic.main.activity_main.rv_recent
+import kotlinx.android.synthetic.main.activity_main.vp_trending
+import kotlinx.android.synthetic.main.activity_main_custom.*
 import kotlin.math.abs
 
 class MainActivity : AppCompatActivity() {
     private val trendingAdapter = HomeTrendingAdapter()
     private val categoryAdapter = HomeCategoryAdapter()
     private val recentAdapter = HomeRecentAdapter()
+    private val mainAdapter = MainAdapter(mutableListOf())
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -21,7 +29,23 @@ class MainActivity : AppCompatActivity() {
     }
 
     private fun init() {
-        setContentView(R.layout.activity_main)
+        setContentView(R.layout.activity_main_custom)
+        setSupportActionBar(toolbar)
+        rv_main.apply {
+            adapter = mainAdapter
+            layoutManager = GridLayoutManager(this@MainActivity, 2).apply {
+                spanSizeLookup = object: GridLayoutManager.SpanSizeLookup(){
+                    override fun getSpanSize(position: Int): Int {
+                        return if(position <= 1){
+                            2
+                        } else {
+                           1
+                        }
+                    }
+                }
+            }
+        }
+
         setupTrending()
         setupCategory()
         setupRecent()
@@ -45,18 +69,11 @@ class MainActivity : AppCompatActivity() {
     }
 
     private fun setupCategory() {
-        categoryAdapter.setData(FakeDataConverter.getGenreFromAsset(this.baseContext, "genres.json")!!.slice(0..3))
-        rv_category.apply {
-            adapter = categoryAdapter
-            layoutManager = GridLayoutManager(this@MainActivity, 4)
-        }
+        mainAdapter.addCategory(FakeDataConverter.getGenreFromAsset(this.baseContext, "genres.json")!!.slice(0..3))
     }
 
     private fun setupRecent() {
-        recentAdapter.setData(FakeDataConverter.getMovieFromAsset(this.baseContext, "now_playing.json")!!.slice(0..3))
-        rv_recent.apply {
-            adapter = recentAdapter
-            layoutManager = GridLayoutManager(this@MainActivity, 2)
-        }
+        mainAdapter.addRecent(FakeDataConverter.getMovieFromAsset(this.baseContext, "now_playing.json")!!.slice(0..3))
+
     }
 }

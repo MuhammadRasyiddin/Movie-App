@@ -25,7 +25,7 @@ class HomeCategoryAdapter : RecyclerView.Adapter<HomeCategoryAdapter.ViewHolder>
         viewType: Int
     ): ViewHolder {
         return ViewHolder(
-            LayoutInflater.from(parent.context).inflate(R.layout.card_category, parent, false)
+            LayoutInflater.from(parent.context).inflate(R.layout.card_category_custom, parent, false)
         )
     }
 
