@@ -44,7 +44,7 @@ class HomeRecentAdapter : RecyclerView.Adapter<HomeRecentAdapter.ViewHolder>() {
 
         @SuppressLint("SetTextI18n")
         fun bind(movie: Movie) {
-            Glide.with(itemView.context).load("${BuildConfig.IMAGE_URL}${movie.backdropPath}")
+            Glide.with(itemView.context).load("${BuildConfig.IMAGE_URL}${movie.posterPath}")
                 .centerCrop().into(poster)
             title.text = movie.title
         }

@@ -61,17 +61,11 @@ Dapp/src/main/java/dev/falcer/movieapp/ui/main/HomeTrendingAdapter.kt,4/8/48ac4
 r
 Bapp/src/main/java/dev/falcer/movieapp/ui/main/HomeRecentAdapter.kt,1/6/16da0d15e7b987ab1c83d240cd5c44fae37bbae5
 Y
-)app/src/main/res/layout/activity_main.xml,7/6/76b07e40f24cce093536731477540f12e7da3cb6
-Y
 )app/src/main/res/layout/card_category.xml,c/5/c5c64723a1243a27d4552d3c38e530726d8d0c26
-V
-&app/src/main/res/layout/card_movie.xml,6/5/65aad071d9a3c2f94b8028eccef83ef4edfa32c6
 Y
 )app/src/main/res/layout/card_trending.xml,0/b/0b7cb53cbacced5b768e9036d04f3a74e4ce56ba
 R
 "app/src/main/res/values/dimens.xml,c/3/c3c1811dec2dbad2deeafb9aad505ca9631da740
-R
-"app/src/main/res/values/styles.xml,f/7/f79cc2688e29fcbc286fda14ae07b27c9e83690f
 P
  app/src/main/AndroidManifest.xml,8/c/8c55c3ccc257e5907959013f99656e4c8ec3903e
 @
