@@ -1,6 +1,11 @@
 package dev.falcer.movieapp.ui.main
 
 import android.annotation.SuppressLint
+import android.graphics.Color
+import android.text.Spannable
+import android.text.SpannableString
+import android.text.style.ForegroundColorSpan
+import android.text.style.RelativeSizeSpan
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -47,7 +52,21 @@ class HomeTrendingAdapter : RecyclerView.Adapter<HomeTrendingAdapter.ViewHolder>
         fun bind(movie: Movie) {
             Glide.with(itemView.context).load("${BuildConfig.IMAGE_URL}${movie.backdropPath}")
                 .centerCrop().into(poster)
-            title.text = movie.title + " " + movie.releaseDate
+            val titleText = "${movie.title} (${movie.releaseDate.slice(0..3)})"
+            val spannableTitle = SpannableString(titleText)
+            spannableTitle.setSpan(
+                RelativeSizeSpan(.65f),
+                titleText.length - 7,
+                titleText.length,
+                Spannable.SPAN_EXCLUSIVE_EXCLUSIVE
+            )
+            spannableTitle.setSpan(
+                ForegroundColorSpan(Color.parseColor("#CCFFFFFF")),
+                titleText.length - 7,
+                titleText.length,
+                Spannable.SPAN_EXCLUSIVE_EXCLUSIVE
+            )
+            title.text = spannableTitle
         }
     }
 
