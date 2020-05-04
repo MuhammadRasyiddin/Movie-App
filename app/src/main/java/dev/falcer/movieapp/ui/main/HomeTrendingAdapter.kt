@@ -20,10 +20,18 @@ import dev.falcer.movieapp.data.entity.Movie
 
 class HomeTrendingAdapter : RecyclerView.Adapter<HomeTrendingAdapter.ViewHolder>() {
 
-    private lateinit var dataList: List<Movie>
+    private var dataList: MutableList<Movie> = mutableListOf()
 
-    fun setData(data: List<Movie>) {
-        dataList = data
+//    fun setData(data: List<Movie>) {
+//        dataList = data
+//        notifyDataSetChanged()
+//    }
+
+    fun addData(list: List<Movie>?){
+        dataList.clear()
+        list?.let {
+            dataList.addAll(it)
+        }
         notifyDataSetChanged()
     }
 

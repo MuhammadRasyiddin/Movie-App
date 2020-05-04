@@ -15,7 +15,7 @@ class RecentItemViewHolder(private val view: View) : RecyclerView.ViewHolder(vie
 
     fun bind(movie: Movie){
         with(view){
-            Glide.with(context).load("${BuildConfig.IMAGE_URL}${movie.backdropPath}")
+            Glide.with(context).load("${BuildConfig.IMAGE_URL}${movie.posterPath}")
                 .centerCrop().into(view.iv_poster)
             view.tv_title.text = movie.title
         }
